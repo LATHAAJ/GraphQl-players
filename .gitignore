@@ -24,14 +24,14 @@ hs_err_pid*
 replay_pid*
 
 # Gradle
-.gradle/
+.gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 # IntelliJ IDEA
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
@@ -64,17 +64,15 @@ bin/
 # Mac
 .DS_Store
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# Node.js (if you add documentation tools later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Spring Boot
-target/
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Documentation build
+docs/
 
-# Maven
-.mvn/
-mvnw
-mvnw.cmd
+# Application specific
+application-local.properties
+application-dev.properties
