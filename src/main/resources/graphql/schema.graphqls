@@ -1,0 +1,68 @@
+type Player {
+    id: ID!
+    name: String!
+    team: Team!
+    role: PlayerRole!
+    age: Int
+    dateOfBirth: String
+    country: String
+    stats: PlayerStats
+}
+
+type PlayerStats {
+    playerId: ID!
+    matchesPlayed: Int
+    runs: Int
+    wickets: Int
+    average: Float
+}
+
+type Match {
+    id: ID!
+    opponent: String!
+    matchDate: String!
+    venue: String!
+    result: MatchResult!
+}
+
+enum Team {
+    CSk,
+    MI,
+    DC,
+    RCB,
+    GT
+}
+
+enum PlayerRole {
+    BATSMAN,
+    BOWLER,
+    ALL_ROUNDER,
+    WICKET_KEEPER
+}
+
+enum MatchResult {
+    WON,
+    LOST,
+    DRAW,
+    NO_RESULT
+}
+
+type Query {
+    findAll: [Player]
+    findPlayerById(id: ID!): Player
+    findPlayersByTeam(team: Team!): [Player]
+    findPlayersByRole(role: PlayerRole!): [Player]
+    findAllMatches: [Match]
+    findMatchById(id: ID!): Match
+    findPlayerStats(playerId: ID!): PlayerStats
+}
+
+type Mutation {
+    createPlayer(name: String!, team: Team!, role: PlayerRole!, age: Int, dateOfBirth: String, country: String): Player
+    updatePlayer(id: ID!, name: String, team: Team, role: PlayerRole, age: Int, dateOfBirth: String, country: String): Player
+    deletePlayer(id: ID!): Boolean
+    createMatch(opponent: String!, matchDate: String!, venue: String!, result: MatchResult!): Match
+    updatePlayerStats(playerId: ID!, matchesPlayed: Int, runs: Int, wickets: Int, average: Float): PlayerStats
+}
+
+
