@@ -64,5 +64,3 @@ type Mutation {
     createMatch(opponent: String!, matchDate: String!, venue: String!, result: MatchResult!): Match
     updatePlayerStats(playerId: ID!, matchesPlayed: Int, runs: Int, wickets: Int, average: Float): PlayerStats
 }
-
-
