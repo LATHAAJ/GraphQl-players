@@ -1,0 +1,5 @@
+schema: ./src/main/resources/graphql/schema.graphqls
+documents: null
+extensions:
+  graphql-markdown:
+    output: ./docs

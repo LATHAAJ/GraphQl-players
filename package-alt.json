@@ -1,0 +1,18 @@
+{
+  "name": "graphql-players-docs",
+  "version": "1.0.0",
+  "description": "GraphQL Players API Documentation",
+  "scripts": {
+    "docs": "graphql-markdown graphql-to-doc --schema ./src/main/resources/graphql/schema.graphqls --root ./docs --force",
+    "docs:generate": "graphql-markdown graphql-to-doc --schema ./src/main/resources/graphql/schema.graphqls --root ./docs --force --pretty",
+    "docs:alt": "graphql-codegen --config codegen.yml"
+  },
+  "devDependencies": {
+    "@graphql-markdown/cli": "^1.0.0",
+    "@graphql-tools/graphql-file-loader": "^10.0.0",
+    "@graphql-tools/load": "^7.0.0",
+    "graphql": "^16.0.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/schema-ast": "^4.0.0"
+  }
+}
