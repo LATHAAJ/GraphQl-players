@@ -44,7 +44,7 @@ tasks.register<Exec>("generateGraphQLDocs") {
     
     doLast {
         println("📚 GraphQL documentation generated successfully!")
-        println("📄 Documentation location: docs/")
+        println("📄 Documentation location: docs/GRAPHQL_API.md")
         println("🌐 To view docs: npm run docs:serve")
         println("🔄 To watch for changes: npm run docs:watch")
     }

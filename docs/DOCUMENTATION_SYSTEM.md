@@ -57,7 +57,7 @@ You can also use Gradle tasks:
 │   ├── generate-docs.js    # Main documentation generator
 │   └── watch-docs.js       # File watcher for auto-regeneration
 ├── docs/
-│   └── README.md           # Generated documentation
+│   └── GRAPHQL_API.md      # Generated documentation
 ├── .github/workflows/
 │   └── docs.yml            # GitHub Actions workflow
 ├── package.json            # NPM scripts
@@ -103,7 +103,7 @@ The generated documentation includes practical examples for:
 
 ## Notes
 
-- Documentation is generated in `docs/README.md`
+- Documentation is generated in `docs/GRAPHQL_API.md`
 - The system preserves your existing manual documentation
 - All generated content is clearly marked
 - Schema changes trigger automatic regeneration
