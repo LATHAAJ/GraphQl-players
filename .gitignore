@@ -71,7 +71,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Documentation build
-docs/
+# docs/ - Commented out to allow documentation to be committed
 
 # Application specific
 application-local.properties
