@@ -1,0 +1,34 @@
+{
+  "name": "graphql-players",
+  "version": "1.0.0",
+  "description": "A Spring Boot GraphQL API for managing cricket players, teams, matches, and player statistics.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:generate": "node scripts/generate-docs.js",
+    "docs:watch": "node scripts/watch-docs.js",
+    "docs:serve": "node scripts/generate-docs.js && echo '📄 Documentation available at: docs/README.md'",
+    "docs:clean": "rm -rf docs/*.md",
+    "docs:build": "npm run docs:clean && npm run docs:generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LATHAAJ/GraphQl-players.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LATHAAJ/GraphQl-players/issues"
+  },
+  "homepage": "https://github.com/LATHAAJ/GraphQl-players#readme",
+  "devDependencies": {
+    "@graphql-markdown/cli": "^0.4.3",
+    "@graphql-markdown/core": "^1.16.3",
+    "graphql": "^16.11.0"
+  }
+}

@@ -1,0 +1,14 @@
+# GraphQL-Markdown Configuration
+outputDir: "./docs"
+schema: "./src/main/resources/graphql/schema.graphqls"
+baseURL: "/docs"
+
+# Generate index file
+generateIndex: true
+
+# Print options for better formatting
+printTypeOptions:
+  deprecated: "group"
+  relatedTypeSection: true
+  typeBadges: true
+  parentTypePrefix: true
