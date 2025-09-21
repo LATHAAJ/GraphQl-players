@@ -268,11 +268,11 @@ The API returns appropriate error messages for:
     }
     
     // Write the documentation
-    fs.writeFileSync(path.join(docsDir, 'GRAPHQL_API.md'), markdown);
+    fs.writeFileSync(path.join(docsDir, 'README.md'), markdown);
     
     console.log('✅ GitHub-style documentation generated successfully!');
-    console.log('📄 Documentation location: docs/GRAPHQL_API.md');
-    console.log('🌐 To view docs: open docs/GRAPHQL_API.md');
+    console.log('📄 Documentation location: docs/README.md');
+    console.log('🌐 To view docs: open docs/README.md');
     
   } catch (error) {
     console.error('❌ Error generating documentation:', error.message);
