@@ -35,39 +35,19 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-// GraphQL Documentation Generation Tasks
-tasks.register<Exec>("generateGraphQLDocs") {
-    group = "documentation"
-    description = "Generate comprehensive GraphQL API documentation using GraphQL-Markdown"
-    
-    commandLine("npm", "run", "docs:generate")
-    
-    doLast {
-        println("📚 GraphQL documentation generated successfully!")
-        println("📄 Documentation location: docs/")
-        println("🌐 To view docs: npm run docs:serve")
-        println("🔄 To watch for changes: npm run docs:watch")
-    }
-}
-
-tasks.register<Exec>("watchGraphQLDocs") {
-    group = "documentation"
-    description = "Watch GraphQL schema changes and auto-regenerate documentation"
-    
-    commandLine("npm", "run", "docs:watch")
-}
-
-tasks.register<Exec>("serveGraphQLDocs") {
-    group = "documentation"
-    description = "Serve GraphQL documentation locally"
-    
-    commandLine("npm", "run", "docs:serve")
-}
-
-tasks.register<Exec>("cleanGraphQLDocs") {
-    group = "documentation"
-    description = "Clean generated GraphQL documentation"
-    
-    commandLine("npm", "run", "docs:clean")
-}
+//tasks.register<Copy>("generateGraphQLDocs") {
+//    group = "documentation"
+//    description = "Generate GraphQL schema documentation (INSTANT)"
+//
+//    from("src/main/resources/graphql/schema.graphqls")
+//    into("build/docs")
+//    rename { "schema.graphqls" }
+//
+//    doLast {
+//        println("⚡ GraphQL documentation generated INSTANTLY!")
+//        println("📄 Schema location: build/docs/schema.graphqls")
+//        println("🌐 To access interactive docs, run: ./gradlew bootRun")
+//        println("🌐 Then visit: http://localhost:8080/graphiql")
+//    }
+//}
 

@@ -1,3 +1,0 @@
-# GraphQL Config
-schema: ./src/main/resources/graphql/schema.graphqls
-documents: ./src/main/resources/graphql/**/*.graphqls
