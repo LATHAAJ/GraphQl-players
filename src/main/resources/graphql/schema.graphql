@@ -111,10 +111,6 @@ type Query {
     findMatchById(id: ID!): Match
     """Get detailed statistics for a specific player"""
     findPlayerStats(playerId: ID!): PlayerStats
-    """Find all players from a specific country"""
-    findPlayersByCountry(country: String!): [Player]
-    """Find players by age range"""
-    findPlayersByAgeRange(minAge: Int!, maxAge: Int!): [Player]
 }
 
 type Mutation {
@@ -128,6 +124,4 @@ type Mutation {
     createMatch(opponent: String!, matchDate: String!, venue: String!, result: MatchResult!): Match
     """Update or create player statistics"""
     updatePlayerStats(playerId: ID!, matchesPlayed: Int, runs: Int, wickets: Int, average: Float): PlayerStats
-    """Transfer a player to a different team"""
-    transferPlayer(playerId: ID!, newTeam: Team!): Player
 }
