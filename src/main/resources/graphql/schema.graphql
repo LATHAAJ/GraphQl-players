@@ -37,6 +37,62 @@ type PlayerStats {
 }
 
 """
+Contains detailed breakdown of player statistics by different categories.
+"""
+type PlayerStatsBreakdown {
+    """The unique identifier of the player"""
+    playerId: ID!
+    """Batting statistics breakdown"""
+    batting: BattingStats
+    """Bowling statistics breakdown"""
+    bowling: BowlingStats
+    """Fielding statistics breakdown"""
+    fielding: FieldingStats
+}
+
+"""
+Detailed batting statistics for a player.
+"""
+type BattingStats {
+    """Total runs scored"""
+    totalRuns: Int
+    """Batting average"""
+    average: Float
+    """Strike rate"""
+    strikeRate: Float
+    """Number of centuries"""
+    centuries: Int
+    """Number of half-centuries"""
+    halfCenturies: Int
+}
+
+"""
+Detailed bowling statistics for a player.
+"""
+type BowlingStats {
+    """Total wickets taken"""
+    totalWickets: Int
+    """Bowling average"""
+    average: Float
+    """Economy rate"""
+    economyRate: Float
+    """Number of 5-wicket hauls"""
+    fiveWicketHauls: Int
+}
+
+"""
+Detailed fielding statistics for a player.
+"""
+type FieldingStats {
+    """Number of catches taken"""
+    catches: Int
+    """Number of stumpings (for wicket keepers)"""
+    stumpings: Int
+    """Number of run outs"""
+    runOuts: Int
+}
+
+"""
 Represents a cricket match with opponent details, venue, and result.
 """
 type Match {
@@ -121,6 +177,8 @@ type Query {
     findPlayersByRoleAndAge(role: PlayerRole!, minAge: Int!, maxAge: Int!): [Player]
     """Find players by multiple criteria"""
     findPlayersByCriteria(country: String, team: Team, role: PlayerRole, minAge: Int, maxAge: Int): [Player]
+    """Get player statistics with detailed breakdown"""
+    getPlayerStatisticsBreakdown(playerId: ID!): PlayerStatsBreakdown
 }
 
 type Mutation {
