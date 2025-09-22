@@ -113,6 +113,8 @@ type Query {
     findPlayerStats(playerId: ID!): PlayerStats
     """Find all players from a specific country"""
     findPlayersByCountry(country: String!): [Player]
+    """Find players by age range"""
+    findPlayersByAgeRange(minAge: Int!, maxAge: Int!): [Player]
 }
 
 type Mutation {
