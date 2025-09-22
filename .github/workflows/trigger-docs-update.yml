@@ -1,0 +1,36 @@
+name: Trigger Documentation Update
+
+on:
+  push:
+    paths:
+      - 'src/main/resources/graphql/schema.graphql'
+    branches: [main, documentGeneration]
+  workflow_dispatch:
+
+jobs:
+  trigger-docs-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Trigger documentation repository dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.DOCS_REPO_TOKEN }}
+          repository: LATHAAJ/graphql-api-docs
+          event-type: update-docs
+          client-payload: |
+            {
+              "head_commit": {
+                "id": "${{ github.sha }}",
+                "message": "${{ github.event.head_commit.message }}",
+                "timestamp": "${{ github.event.head_commit.timestamp }}"
+              },
+              "repository": {
+                "name": "${{ github.repository }}",
+                "full_name": "${{ github.repository }}"
+              },
+              "ref": "${{ github.ref }}",
+              "workflow": "${{ github.workflow }}"
+            }

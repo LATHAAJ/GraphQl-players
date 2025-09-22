@@ -35,19 +35,35 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-//tasks.register<Copy>("generateGraphQLDocs") {
-//    group = "documentation"
-//    description = "Generate GraphQL schema documentation (INSTANT)"
-//
-//    from("src/main/resources/graphql/schema.graphqls")
-//    into("build/docs")
-//    rename { "schema.graphqls" }
-//
-//    doLast {
-//        println("⚡ GraphQL documentation generated INSTANTLY!")
-//        println("📄 Schema location: build/docs/schema.graphqls")
-//        println("🌐 To access interactive docs, run: ./gradlew bootRun")
-//        println("🌐 Then visit: http://localhost:8080/graphiql")
-//    }
-//}
+tasks.register<Copy>("generateGraphQLDocs") {
+    group = "documentation"
+    description = "Generate GraphQL schema documentation (INSTANT)"
+
+    from("src/main/resources/graphql/schema.graphqls")
+    into("build/docs")
+    rename { "schema.graphqls" }
+
+    doLast {
+        println("⚡ GraphQL documentation generated INSTANTLY!")
+        println("📄 Schema location: build/docs/schema.graphqls")
+        println("🌐 To access interactive docs, run: ./gradlew bootRun")
+        println("🌐 Then visit: http://localhost:8080/graphiql")
+    }
+}
+
+tasks.register<JavaExec>("generateMarkdownDocs") {
+    group = "documentation"
+    description = "Generate Markdown documentation using Java"
+    
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass.set("com.graphQl.demo.DemoApplication")
+    
+    args("--spring.main.web-application-type=none")
+    systemProperty("spring.profiles.active", "docs")
+    
+    doLast {
+        println("✅ Markdown documentation generated!")
+        println("📄 Location: docs/schema-documentation.md")
+    }
+}
 
