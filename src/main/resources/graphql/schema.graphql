@@ -119,6 +119,8 @@ type Query {
     findPlayersByCountryAndTeam(country: String!, team: Team!): [Player]
     """Find players by role and age range"""
     findPlayersByRoleAndAge(role: PlayerRole!, minAge: Int!, maxAge: Int!): [Player]
+    """Find players by multiple criteria"""
+    findPlayersByCriteria(country: String, team: Team, role: PlayerRole, minAge: Int, maxAge: Int): [Player]
 }
 
 type Mutation {
