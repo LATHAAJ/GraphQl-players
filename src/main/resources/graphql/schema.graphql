@@ -2,9 +2,9 @@
 Represents a cricket player with their basic information, team affiliation, and role.
 """
 type Player {
-    """Unique identifier for the player"""
+    """Unique identifier for the cricket player"""
     id: ID!
-    """The name of the player"""
+    """The name of the cricket player"""
     name: String!
     """The team the player belongs to"""
     team: Team!
@@ -18,6 +18,8 @@ type Player {
     country: String
     """Detailed statistics for the player"""
     stats: PlayerStats
+    """Added new field for testing"""
+    jerseyNumber: Int
 }
 
 """
