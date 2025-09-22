@@ -14,6 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check if DOCS_REPO_TOKEN exists
+        run: |
+          if [ -z "${{ secrets.DOCS_REPO_TOKEN }}" ]; then
+            echo "❌ DOCS_REPO_TOKEN secret is not set!"
+            echo "Please add DOCS_REPO_TOKEN secret to this repository"
+            exit 1
+          else
+            echo "✅ DOCS_REPO_TOKEN secret is configured"
+          fi
+
       - name: Trigger documentation repository dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
@@ -26,5 +36,6 @@ jobs:
               "repository": "${{ github.repository }}",
               "ref": "${{ github.ref }}",
               "workflow": "${{ github.workflow }}",
-              "triggered_at": "${{ github.event.head_commit.timestamp }}"
+              "triggered_at": "${{ github.event.head_commit.timestamp }}",
+              "branch": "${{ github.ref_name }}"
             }
