@@ -26,6 +26,9 @@ dependencies {
     implementation("com.graphql-java:graphql-java-extended-scalars:21.0")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     
+    // GraphiQL for development - REQUIRED for GraphiQL to work
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.graphql:spring-graphql-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
