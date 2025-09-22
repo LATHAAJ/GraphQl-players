@@ -22,15 +22,9 @@ jobs:
           event-type: update-docs
           client-payload: |
             {
-              "head_commit": {
-                "id": "${{ github.sha }}",
-                "message": "${{ github.event.head_commit.message }}",
-                "timestamp": "${{ github.event.head_commit.timestamp }}"
-              },
-              "repository": {
-                "name": "${{ github.repository }}",
-                "full_name": "${{ github.repository }}"
-              },
+              "commit_id": "${{ github.sha }}",
+              "repository": "${{ github.repository }}",
               "ref": "${{ github.ref }}",
-              "workflow": "${{ github.workflow }}"
+              "workflow": "${{ github.workflow }}",
+              "triggered_at": "${{ github.event.head_commit.timestamp }}"
             }
