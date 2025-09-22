@@ -18,8 +18,10 @@ type Player {
     country: String
     """Detailed statistics for the player"""
     stats: PlayerStats
-    """Added new field for testing"""
+    """Player's jersey number"""
     jerseyNumber: Int
+    """Player's nickname or alias"""
+    nickname: String
 }
 
 """

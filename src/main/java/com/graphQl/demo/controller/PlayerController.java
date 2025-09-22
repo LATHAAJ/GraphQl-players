@@ -59,14 +59,16 @@ public class PlayerController {
 
   @MutationMapping
   public Player createPlayer(@Argument String name, @Argument Team team, @Argument PlayerRole role, 
-                           @Argument Integer age, @Argument String dateOfBirth, @Argument String country) {
-    return playerService.createPlayer(name, team, role, age, dateOfBirth, country);
+                           @Argument Integer age, @Argument String dateOfBirth, @Argument String country,
+                           @Argument Integer jerseyNumber, @Argument String nickname) {
+    return playerService.createPlayer(name, team, role, age, dateOfBirth, country, jerseyNumber, nickname);
   }
 
   @MutationMapping
   public Player updatePlayer(@Argument Integer id, @Argument String name, @Argument Team team, 
-                           @Argument PlayerRole role, @Argument Integer age, @Argument String dateOfBirth, @Argument String country) {
-    return playerService.updatePlayer(id, name, team, role, age, dateOfBirth, country);
+                           @Argument PlayerRole role, @Argument Integer age, @Argument String dateOfBirth, @Argument String country,
+                           @Argument Integer jerseyNumber, @Argument String nickname) {
+    return playerService.updatePlayer(id, name, team, role, age, dateOfBirth, country, jerseyNumber, nickname);
   }
 
   @MutationMapping

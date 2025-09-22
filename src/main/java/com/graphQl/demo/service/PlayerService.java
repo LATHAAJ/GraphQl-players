@@ -42,9 +42,9 @@ public class PlayerService {
             .collect(Collectors.toList());
   }
 
-  public Player createPlayer(String name, Team team, PlayerRole role, Integer age, String dateOfBirth, String country) {
+  public Player createPlayer(String name, Team team, PlayerRole role, Integer age, String dateOfBirth, String country, Integer jerseyNumber, String nickname) {
     Player player = new Player(playerId.incrementAndGet(), name, team, role, age, 
-                              dateOfBirth != null ? LocalDate.parse(dateOfBirth) : null, country);
+                              dateOfBirth != null ? LocalDate.parse(dateOfBirth) : null, country, jerseyNumber, nickname);
     playerList.add(player);
     return player;
   }
@@ -55,9 +55,9 @@ public class PlayerService {
     return player;
   }
 
-  public Player updatePlayer(Integer id, String name, Team team, PlayerRole role, Integer age, String dateOfBirth, String country) {
+  public Player updatePlayer(Integer id, String name, Team team, PlayerRole role, Integer age, String dateOfBirth, String country, Integer jerseyNumber, String nickname) {
     Player updatePlayer = new Player(id, name, team, role, age, 
-                                   dateOfBirth != null ? LocalDate.parse(dateOfBirth) : null, country);
+                                   dateOfBirth != null ? LocalDate.parse(dateOfBirth) : null, country, jerseyNumber, nickname);
     Optional<Player> optional = playerList.stream().filter(c -> c.Id() == id).findFirst();
 
     if (optional.isPresent()) {
@@ -107,12 +107,12 @@ public class PlayerService {
 
   @PostConstruct
   private void init() {
-    // Initialize players with enhanced data
-    playerList.add(new Player(playerId.incrementAndGet(), "MS Dhoni", Team.CSk, PlayerRole.WICKET_KEEPER, 42, LocalDate.of(1981, 7, 7), "India"));
-    playerList.add(new Player(playerId.incrementAndGet(), "Rohit Sharma", Team.MI, PlayerRole.BATSMAN, 36, LocalDate.of(1987, 4, 30), "India"));
-    playerList.add(new Player(playerId.incrementAndGet(), "Jaspreet Bumrah", Team.MI, PlayerRole.BOWLER, 30, LocalDate.of(1993, 12, 6), "India"));
-    playerList.add(new Player(playerId.incrementAndGet(), "Rishabh Pant", Team.DC, PlayerRole.WICKET_KEEPER, 26, LocalDate.of(1997, 10, 4), "India"));
-    playerList.add(new Player(playerId.incrementAndGet(), "Suresh Raina", Team.CSk, PlayerRole.ALL_ROUNDER, 37, LocalDate.of(1986, 11, 27), "India"));
+    // Initialize players with enhanced data including jersey numbers and nicknames
+    playerList.add(new Player(playerId.incrementAndGet(), "MS Dhoni", Team.CSk, PlayerRole.WICKET_KEEPER, 42, LocalDate.of(1981, 7, 7), "India", 7, "Captain Cool"));
+    playerList.add(new Player(playerId.incrementAndGet(), "Rohit Sharma", Team.MI, PlayerRole.BATSMAN, 36, LocalDate.of(1987, 4, 30), "India", 45, "Hitman"));
+    playerList.add(new Player(playerId.incrementAndGet(), "Jaspreet Bumrah", Team.MI, PlayerRole.BOWLER, 30, LocalDate.of(1993, 12, 6), "India", 93, "Boom Boom"));
+    playerList.add(new Player(playerId.incrementAndGet(), "Rishabh Pant", Team.DC, PlayerRole.WICKET_KEEPER, 26, LocalDate.of(1997, 10, 4), "India", 17, "Pantastic"));
+    playerList.add(new Player(playerId.incrementAndGet(), "Suresh Raina", Team.CSk, PlayerRole.ALL_ROUNDER, 37, LocalDate.of(1986, 11, 27), "India", 3, "Mr. IPL"));
 
     // Initialize some matches
     matchList.add(new Match(matchId.incrementAndGet(), "Mumbai Indians", LocalDate.of(2024, 3, 15), "Wankhede Stadium", MatchResult.WON));
